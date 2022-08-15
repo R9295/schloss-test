@@ -4,10 +4,10 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  node-docker:
+  run:
     runs-on: ubuntu-latest
     container:
-      image: gonzohst:test/v0.0.1-beta.1
+      image: gonzohst/test:v0.0.1-beta.1
     steps:
          - name: Run Schloss
            run: |
