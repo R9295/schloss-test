@@ -6,7 +6,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    container:
+    container: gonzohst/test:v0.0.1-beta.1
     steps:
       - name: Checkout 
         uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume 
