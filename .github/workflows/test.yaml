@@ -10,11 +10,7 @@ jobs:
     steps:
       - name: Checkout 
         uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume 
-      - uses: addnab/docker-run-action@v3
-        with:
-          image: gonzohst/test:v0.0.1-beta.1
-          options: -v ${{ github.workspace }}:/work 
-          run: |
-            cd /work
-            ls -l
-            schloss -t poetry
+      - name: test
+        run: |
+          ls -la
+          schloss -t poetry
