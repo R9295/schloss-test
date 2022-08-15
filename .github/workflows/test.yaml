@@ -13,4 +13,5 @@ jobs:
          - name: test
            run: |
              ls -la
+             git ls-files --others --exclude-standard
              schloss -t poetry
