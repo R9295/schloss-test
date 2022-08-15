@@ -6,14 +6,12 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    container: 
-      image: gonzohst/test:v0.0.1-beta.1
-      options: --user root
+    container: gonzohst/test:v0.0.1-beta.1
+    options: --user root
     steps:
          - name: Checkout 
            uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume 
          - name: test
            run: |
-             ls -la
-             git ls-files --others --exclude-standard
+             git config --global --add safe.directory '*'
              schloss -t poetry
