@@ -13,4 +13,5 @@ jobs:
          - name: test
            run: |
              git config --global --add safe.directory '*'
+             git ls-files --others --exclude-standard
              schloss -t poetry
