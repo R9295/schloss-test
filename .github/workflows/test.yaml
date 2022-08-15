@@ -1,0 +1,14 @@
+name: Schloss
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    container:
+      image: gonzohst/test:v0.0.1-beta.1
+    steps:
+         - name: Run Schloss
+           run: |
+             schloss -t poetry
