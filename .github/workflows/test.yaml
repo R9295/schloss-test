@@ -9,6 +9,9 @@ jobs:
     container:
       image: gonzohst/test:v0.0.1-beta.1
     steps:
+         - uses: actions/checkout@v3
+           name: checkout
          - name: Run Schloss
            run: |
+             cd $GITHUB_WORKSPACE
              schloss -t poetry
