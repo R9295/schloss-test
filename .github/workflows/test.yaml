@@ -7,11 +7,13 @@ jobs:
   run:
     runs-on: ubuntu-latest
     container:
-      image: gonzohst/test:v0.0.1-beta.1
     steps:
-         - uses: actions/checkout@v3
-           name: checkout
-         - name: Run Schloss
-           run: |
-             cd $GITHUB_WORKSPACE
-             schloss -t poetry
+      - name: Checkout 
+        uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume 
+      - uses: addnab/docker-run-action@v3
+        with:
+          image: gonzohst/test:v0.0.1-beta.1
+          options: -v ${{ github.workspace }}:/work 
+          run: |
+            cd /work
+            schloss -t poetry
